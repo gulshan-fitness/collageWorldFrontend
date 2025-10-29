@@ -1,0 +1,38 @@
+
+
+  
+  /* Initial state of the element */
+  .dropdown-enter {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 300ms ease-out, opacity 300ms ease-out;
+    transform: scaleY(0.8);
+}
+
+/* State when the element is entering */
+.dropdown-enter-active {
+    max-height: 500px; /* Adjust according to the content */
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+/* Initial state when the element is exiting */
+.dropdown-exit {
+    max-height: 500px;
+    opacity: 1;
+    overflow: hidden;
+    transform: scaleY(1);
+    transition: max-height 300ms ease-in, opacity 300ms ease-in;
+}
+
+/* State when the element is exiting */
+.dropdown-exit-active {
+    max-height: 0;
+    opacity: 0;
+    transform: scaleY(0.8);
+}
+.dropdown-content {
+    transition: max-height 300ms ease-in-out, opacity 300ms ease-in-out;
+    overflow: hidden;
+}

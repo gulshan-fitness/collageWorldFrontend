@@ -1,0 +1,68 @@
+
+
+
+
+/* // backend css for all paragraph start ---------------------------------------------------*/
+
+
+
+
+
+/* // backend css for all paragraph start ---------------------------------------------------*/
+
+.preview h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+.preview h2 {
+  font-size: 1.5em;
+  margin: 0.75em 0;
+}
+.preview h3 {
+  font-size: 1.17em;
+  margin: 0.83em 0;
+}
+
+
+.preview ol {
+  list-style-type: decimal;
+
+  margin-left: 20px;
+}
+
+.preview ul {
+  list-style-type: disc; /* or any other style you prefer */
+  margin-left: 20px; /* Adjust the indentation */
+}
+
+.preview ul li {
+  position: relative;
+  
+}
+
+.preview ul li::before {
+  content: '.';
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+/* // backend css for all paragraph start---------------------------------------------------- */
+
+/* website frontend css start---------------------------------------------------------------* */
+
+
+/* // backend css for all paragraph start---------------------------------------------------- */
+
+/* website frontend css start---------------------------------------------------------------* */

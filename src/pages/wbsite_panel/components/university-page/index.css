@@ -1,0 +1,37 @@
+
+.topbarcut::before{
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: 35%;
+    background: #ff7350;
+    top: 0;
+    z-index: -1;
+    left: -25px;
+    transform: skew(30deg);
+}
+
+
+.t_centerCus{
+text-align: center;
+}
+
+/*  Footer Css Start */
+.bg-footer{
+    /* background-image: url(./Footer/footer-bg.png); */
+    background-size: cover;
+
+}
+.border_orange{
+    position: relative;
+}
+.border_orange::after{
+    content: "";
+    width: 30%;
+    position: absolute;
+    background-color: #ff7350;
+    padding: 1px;
+    bottom: 0px;
+    left: 0px;
+}
+/* Footer Css End */

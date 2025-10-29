@@ -1,0 +1,80 @@
+/* Container for side-by-side layout */
+
+
+/* Brand section styling */
+.brand-section {
+  flex: 1;
+  overflow: hidden; /* Hide overflow for the animated track */
+   /* Light background color */
+/* Rounded corners */
+ 
+}
+
+/* Slider styling */
+.slider {
+  position: relative;
+  white-space: nowrap; /* Prevent line breaks */
+}
+
+/* Track styling */
+.slide-track {
+  display: flex;
+  width: 200%; /* Width to accommodate both sets of slides */
+  animation: scroll 30s linear infinite; /* Animation for scrolling */
+}
+
+/* Slide item styling */
+.slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  margin: 0 10px; /* Space between slides */
+  flex: 0 0 auto; /* Prevent flex items from shrinking */
+}
+
+/* Image styling */
+.slide-image {
+  width: 90px; /* Image width */
+  height: 90px; /* Image height */
+  object-fit: contain; /* Maintain aspect ratio */
+  background-color: #fff; /* Background color for image */
+  border-radius: 8px; /* Rounded corners for image */
+  padding: 10px; /* Padding around image */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow */
+}
+
+/* Company name styling */
+.company-name {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  color: #333;
+}
+
+/* Content section styling */
+.content-section {
+  flex: 2; /* Take up more space than the brand section */
+  background-color: #fff; /* Background color */
+ /* Rounded corners */
+  padding: 20px; /* Padding inside content */
+  
+}
+
+/* Preview section styling */
+.preview {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Keyframes for scrolling animation */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

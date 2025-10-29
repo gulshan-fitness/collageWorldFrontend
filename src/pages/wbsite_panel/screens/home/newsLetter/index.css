@@ -1,0 +1,5 @@
+.bg-news {
+    background: url("./image/bg-news-letter.jpg") no-repeat center 50%;
+    background-size: cover;
+    height: 500px;
+  }

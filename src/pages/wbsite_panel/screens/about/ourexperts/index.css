@@ -1,0 +1,21 @@
+.slide-in {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slide-out {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.expert-image-container {
+    position: relative;
+    border-radius: 10px; /* Rounded corners for images */
+    overflow: hidden; /* Ensures images stay within bounds */
+}
+
+.expert-image {
+    object-fit: cover; /* Ensures images cover the container without distortion */
+}
