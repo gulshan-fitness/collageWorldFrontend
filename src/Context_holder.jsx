@@ -162,7 +162,7 @@ export default function Context_holder(props) {
     }
 
     axios
-      .get(api_url)
+      .get(api_url,{ withCredentials: true })
       .then((success) => {
         console.log(success,"college");
 
