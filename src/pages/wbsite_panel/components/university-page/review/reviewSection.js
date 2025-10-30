@@ -28,7 +28,7 @@ ChartJS.register(
 );
 
 const ReviewSection = ({ id, avgrating }) => {
-console.log(id, avgrating);
+  console.log(id, avgrating);
 
   const {
     review_fetch,
@@ -105,28 +105,58 @@ console.log(id, avgrating);
     }
   });
 
+  // Premium color palette
+  const premiumColors = {
+    primary: {
+      dark: "#1a1f36",     // Deep navy
+      medium: "#2d3748",   // Charcoal
+      light: "#4a5568",    // Slate gray
+    },
+    accent: {
+      gold: "#d4af37",     // Premium gold
+      roseGold: "#b76e79", // Rose gold
+      bronze: "#cd7f32",   // Bronze
+    },
+    chart: {
+      oneStar: "#ef4444",    // Premium red
+      twoStars: "#f97316",   // Premium orange
+      threeStars: "#eab308", // Premium yellow
+      fourStars: "#22c55e",  // Premium green
+      fiveStars: "#3b82f6",  // Premium blue
+    },
+    background: {
+      light: "#f8fafc",     // Light slate
+      dark: "#1e293b",      // Dark slate
+    },
+    text: {
+      primary: "#f1f5f9",   // Light text
+      secondary: "#cbd5e1", // Muted text
+    }
+  };
+
   const chartData = {
     labels: ["1 Star", "2 Stars", "3 Stars", "4 Stars", "5 Stars"],
     datasets: [
       {
-        label: "Rating Counts",
+        label: "Rating Distribution",
         data: Object.values(starCount),
         backgroundColor: [
-          "rgba(255, 99, 132, 0.6)", // 1 Star color
-          "rgba(255, 159, 64, 0.6)", // 2 Stars color
-          "rgba(255, 205, 86, 0.6)", // 3 Stars color
-          "rgba(75, 192, 192, 0.6)", // 4 Stars color
-          "rgba(54, 162, 235, 0.6)"  // 5 Stars color
+          premiumColors.chart.oneStar,
+          premiumColors.chart.twoStars,
+          premiumColors.chart.threeStars,
+          premiumColors.chart.fourStars,
+          premiumColors.chart.fiveStars,
         ],
         borderColor: [
-          "rgba(255, 182, 193, 1)", // 1 Star border color (light pink)
-          "rgba(255, 182, 193, 1)", // 2 Stars border color (light pink)
-          "rgba(255, 182, 193, 1)", // 3 Stars border color (light pink)
-          "rgba(255, 182, 193, 1)", // 4 Stars border color (light pink)
-          "rgba(255, 182, 193, 1)"  // 5 Stars border color (light pink)
+          premiumColors.accent.gold,
+          premiumColors.accent.gold,
+          premiumColors.accent.gold,
+          premiumColors.accent.gold,
+          premiumColors.accent.gold,
         ],
-        
-        borderWidth: 1,
+        borderWidth: 2,
+        borderRadius: 8,
+        borderSkipped: false,
       },
     ],
   };
@@ -137,8 +167,20 @@ console.log(id, avgrating);
     plugins: {
       legend: {
         position: 'top',
+        labels: {
+          color: premiumColors.text.primary,
+          font: {
+            size: 14,
+            weight: '600'
+          }
+        }
       },
       tooltip: {
+        backgroundColor: premiumColors.primary.dark,
+        titleColor: premiumColors.text.primary,
+        bodyColor: premiumColors.text.secondary,
+        borderColor: premiumColors.accent.gold,
+        borderWidth: 1,
         callbacks: {
           label: function(tooltipItem) {
             return tooltipItem.dataset.label + ': ' + tooltipItem.raw;
@@ -150,14 +192,28 @@ console.log(id, avgrating);
       x: {
         beginAtZero: true,
         ticks: {
-          color: 'white', // Change x-axis number color to white
+          color: premiumColors.text.primary,
+          font: {
+            size: 12,
+            weight: '500'
+          }
         },
+        grid: {
+          color: premiumColors.primary.light,
+        }
       },
       y: {
         beginAtZero: true,
         ticks: {
-          color: 'white', // Change y-axis number color to white
+          color: premiumColors.text.primary,
+          font: {
+            size: 12,
+            weight: '500'
+          }
         },
+        grid: {
+          color: premiumColors.primary.light,
+        }
       },
     },
   };
@@ -237,63 +293,63 @@ console.log(id, avgrating);
   };
 
   return (
-    <div className="w-full flex justify-center py-[5em]">
-      <div className="w-[90%] rounded-lg shadow-lg p-4">
+    <div className="w-full flex justify-center py-[5em]" style={{ backgroundColor: premiumColors.background.dark }}>
+      <div className="w-[90%] rounded-lg shadow-2xl p-6" style={{ backgroundColor: premiumColors.primary.medium }}>
         <div className="flex flex-col md:flex-row justify-between w-full">
           {/* Review Submission Section */}
-          <div className="md:w-[30%] w-full mb-10 px-3 ">
-            <h2 className="md:text-2xl text-xl font-bold mb-5">Leave a Review</h2>
+          <div className="md:w-[30%] w-full mb-10 px-3">
+            <h2 className="md:text-2xl text-xl font-bold mb-5" style={{ color: premiumColors.accent.gold }}>
+              Leave a Review
+            </h2>
             <div className="mb-4">
               <ReactStarsRating
                 onChange={onChange}
                 value={rating_value}
                 className="flex"
+                starColor={premiumColors.accent.gold}
               />
             </div>
             <textarea
-              className="w-full border border-gray-300 p-3 rounded-lg focus:outline-none focus:border-blue-500 text-black"
+              className="w-full border border-gray-600 p-3 rounded-lg focus:outline-none focus:border-blue-400 text-white"
+              style={{ backgroundColor: premiumColors.primary.dark }}
               rows="4"
               placeholder="Write your review here..."
               value={reviewText}
               onChange={(e) => setReviewText(e.target.value)}
             />
             {inputFillMessage && (
-              <div className="text-red-600 text-lg font-bold mt-2">
+              <div className="text-red-400 text-lg font-bold mt-2">
                 {inputFillMessage}
               </div>
             )}
             <button
-              className="bg-blue-500 mt-4 w-full md:w-auto text-white px-4 py-2 rounded-lg 
-              hover:bg-blue-600 focus:outline-none"
+              className="mt-4 w-full md:w-auto text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 focus:outline-none transition-all duration-300"
+              style={{ backgroundColor: premiumColors.accent.gold }}
               onClick={Submit_handler}
             >
-              Submit
+              Submit Review
             </button>
           </div>
 
           {/* Review Distribution Section */}
-
-          <div className="flex flex-col md:w-[50%]  w-full">
-            <div className="flex justify-between">
-
-              <h3 className="md:text-xl  text-md font-semibold">Review Distribution</h3>
-
-              <div>
-                <div className="md:text-lg  text-md font-semibold w-full">
-
+          <div className="flex flex-col md:w-[50%] w-full">
+            <div className="flex justify-between items-center">
+              <h3 className="md:text-xl text-md font-semibold" style={{ color: premiumColors.text.primary }}>
+                Review Distribution
+              </h3>
+              <div className="text-right">
+                <div className="md:text-lg text-md font-semibold" style={{ color: premiumColors.text.primary }}>
                   <p>Average Rating: {rounded_rating(avgrating) ?? 0} out of 5</p>
-
                 </div>
-
                 <StarRatings
                   rating={rounded_rating(avgrating) ?? 0}
-                  starRatedColor="gold"
+                  starRatedColor={premiumColors.accent.gold}
+                  starEmptyColor={premiumColors.primary.light}
                   numberOfStars={5}
                   starDimension="24px"
                   starSpacing="3px"
                   readonly
                 />
-
               </div>
             </div>
             <div className="w-full mx-auto mt-6" style={{ height: '400px' }}>
@@ -304,7 +360,7 @@ console.log(id, avgrating);
 
         {/* Reviews List Section */}
         <div className="mt-12">
-          <h3 className="text-xl font-semibold mb-5">
+          <h3 className="text-xl font-semibold mb-5" style={{ color: premiumColors.accent.gold }}>
             Reviews ({perticulerCollegereviews?.length})
           </h3>
           {perticulerCollegereviews?.map((data, index) => {
@@ -316,14 +372,15 @@ console.log(id, avgrating);
             return (
               <div
                 key={data._id}
-                className="mb-6 border-b border-gray-300 pb-4"
+                className="mb-6 border-b pb-4"
+                style={{ borderColor: premiumColors.primary.light }}
               >
                 {matchedRating && (
-                  <div className="mb-2 text-lg font-semibold text-blue-600">
+                  <div className="mb-2 text-lg font-semibold">
                     <StarRatings
-                      
                       rating={matchedRating?.rating ?? 0}
-                      starRatedColor="gold"
+                      starRatedColor={premiumColors.accent.gold}
+                      starEmptyColor={premiumColors.primary.light}
                       numberOfStars={5}
                       starDimension="20px"
                       starSpacing="2px"
@@ -331,20 +388,23 @@ console.log(id, avgrating);
                     />
                   </div>
                 )}
-                <p className="mb-4 text-base">{data.review}</p>
-                <p className="mb-4 text-red-600 font-bold">
+                <p className="mb-4 text-base" style={{ color: premiumColors.text.secondary }}>
+                  {data.review}
+                </p>
+                <p className="mb-4 font-bold" style={{ color: premiumColors.accent.roseGold }}>
                   {data?.reviewUserDetails?.name}
                 </p>
 
-                <div className="flex justify-between  md:flex-row ">
-                  <div className="text-lg font-bold mb-3">
+                <div className="flex justify-between md:flex-row flex-col">
+                  <div className="text-lg font-bold mb-3" style={{ color: premiumColors.text.primary }}>
                     Comments ({data?.comments?.length ?? 0})
                   </div>
                   <button
-                    className="text-blue-500 hover:underline flex items-center"
+                    className="flex items-center hover:opacity-80 transition-opacity duration-300 font-semibold"
+                    style={{ color: premiumColors.accent.gold }}
                     onClick={() => setcommnetBox_index(index)}
                   >
-                    <FontAwesomeIcon icon={faComment} className="text-white mr-2" />
+                    <FontAwesomeIcon icon={faComment} className="mr-2" />
                     {commnetBox_index === index
                       ? "Hide Comments"
                       : "View Comments"}
@@ -356,37 +416,57 @@ console.log(id, avgrating);
                     {data?.comments?.slice(0, visibleComments).map((comment, i) => (
                       <div
                         key={i}
-                        className="p-3 border border-gray-300 rounded-lg mb-2 flex items-center"
+                        className="p-3 border rounded-lg mb-2 flex items-center"
+                        style={{ 
+                          backgroundColor: premiumColors.primary.dark,
+                          borderColor: premiumColors.primary.light
+                        }}
                       >
-                        <FontAwesomeIcon icon={faComment} className="text-gray-500 mr-2" />
+                        <FontAwesomeIcon 
+                          icon={faComment} 
+                          className="mr-3"
+                          style={{ color: premiumColors.accent.gold }}
+                        />
                         <div>
-                          <p className="text-sm font-semibold mb-1">
+                          <p className="text-sm font-semibold mb-1" style={{ color: premiumColors.text.primary }}>
                             {comment?.userDetails?.name}
                           </p>
-                          <p className="text-sm">{comment?.comment}</p>
+                          <p className="text-sm" style={{ color: premiumColors.text.secondary }}>
+                            {comment?.comment}
+                          </p>
                         </div>
                       </div>
                     ))}
 
                     {data?.comments?.length > visibleComments && (
                       <button
-                        className="text-black px-1 py-1 rounded  bg-white hover:underline mt-4"
+                        className="px-4 py-2 rounded font-semibold hover:opacity-90 transition-all duration-300 mt-4"
+                        style={{ 
+                          backgroundColor: premiumColors.accent.gold,
+                          color: premiumColors.primary.dark
+                        }}
                         onClick={handleLoadMore}
                       >
                         Load More Comments
                       </button>
                     )}
 
-                    <div className="pt-2">
+                    <div className="pt-4">
                       <input
                         type="text"
                         placeholder="Add a comment..."
-                        className="border border-gray-300 p-2 rounded-lg w-full  text-black focus:outline-none focus:border-blue-500"
+                        className="border p-3 rounded-lg w-full focus:outline-none focus:border-blue-400"
+                        style={{ 
+                          backgroundColor: premiumColors.primary.dark,
+                          borderColor: premiumColors.primary.light,
+                          color: premiumColors.text.primary
+                        }}
                         value={commentValue}
                         onChange={(e) => setCommentValue(e.target.value)}
                       />
                       <button
-                        className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-2 hover:bg-blue-600 focus:outline-none"
+                        className="text-white px-6 py-2 rounded-lg mt-3 font-semibold hover:opacity-90 focus:outline-none transition-all duration-300"
+                        style={{ backgroundColor: premiumColors.accent.gold }}
                         onClick={() => handleCommentSubmit(data._id)}
                       >
                         Submit Comment
