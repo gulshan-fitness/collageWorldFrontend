@@ -12,7 +12,7 @@ const CourseType = () => {
   }=useContext(Context)
 
   useEffect(()=>{
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+   
     if(activeFilter!=='all'){
       const query={}
       query.courseType=activeFilter

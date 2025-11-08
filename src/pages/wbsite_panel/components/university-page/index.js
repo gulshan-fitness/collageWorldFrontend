@@ -190,6 +190,11 @@ if(new_data){
     }
   };
 
+
+
+  console.log(colleges[0],"colleges?.[0]");
+  
+
   if (colleges?.length!==0){
     return (
       <div className="w-full min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 text-gray-900" id="page_on_the_top">
@@ -437,7 +442,7 @@ if(new_data){
     </div>
   </div>
   <div className="p-2 bg-white">
-    <HiringPartner id={id} collegeDetails={colleges?.[0]} />
+    <HiringPartner id={id}  />
   </div>
 </div>
               </div>
@@ -476,7 +481,7 @@ if(new_data){
                     <h3 className="text-base font-bold text-black">Latest News</h3>
                   </div>
                   <div className="p-4 bg-white">
-                    <NewsSlider collegeDetails={colleges?.[0]} />
+                    <NewsSlider collegeDetails={colleges[0]} />
                   </div>
                 </div>
               </div>

@@ -87,7 +87,7 @@ const Home = () => {
 
       <OverTeamExtra />
 
-      <StudentsPlaced placed_students={placed_students}/>
+      {/* <StudentsPlaced placed_students={placed_students}/> */}
 
       {/* <WhatMakeUs /> */}
 

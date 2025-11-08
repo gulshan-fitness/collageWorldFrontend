@@ -1329,7 +1329,7 @@ setrefrelUsers(response.data.RefrelUsers)
    )
         .then((response) => {
           
-notify(response.data.msg,response.data.status)
+
           
           if (response.data.status === 1) {
 

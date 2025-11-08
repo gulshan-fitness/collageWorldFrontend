@@ -25,10 +25,10 @@ const {setadmin,settoken,notify}=useContext(Context)
 
     
      const name= e.target.name.value
-      const email= e.target.email.value
-      const contact= e.target.Contact.value
-      const password= e.target.password.value
-      const confirm_password= e.target.Confirm_Password.value
+     const email= e.target.email.value
+     const contact= e.target.Contact.value
+     const password= e.target.password.value
+     const confirm_password= e.target.Confirm_Password.value
          
 
 

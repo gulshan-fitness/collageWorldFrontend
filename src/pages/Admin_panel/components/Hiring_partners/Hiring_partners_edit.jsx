@@ -15,16 +15,7 @@ export default function Hiring_partners_edit() {
 
     const logo_ref=useRef()
 
-    useEffect(
-        () => {
-            setData(current_hiring_partners);
-
-        },[current_hiring_partners]
-    )
-
-   
-
-
+    
     const { id } = useParams()
 
 
@@ -47,6 +38,17 @@ if(!admin) return
 
         }, [id,admin]
     )
+
+    useEffect(
+        () => {
+            setData(current_hiring_partners);
+
+        },[current_hiring_partners]
+    )
+
+   
+
+
 
 
     useEffect(

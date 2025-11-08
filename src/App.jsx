@@ -939,9 +939,10 @@ function App() {
       element: <SubAdminPending />,
     },
 
-    
     {
+      
       path: "admin_sign_up/$rj60cc1113$",
+
 
       element:(
                <AdminProtectedRoutes>
@@ -962,7 +963,6 @@ function App() {
 
     {
       path: "/student_profile",
-
       element: <StudentProfile />,
     },
 

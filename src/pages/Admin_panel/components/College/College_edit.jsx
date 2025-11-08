@@ -267,7 +267,7 @@ export default function College_edit() {
               <div className="bg-white/20 rounded-xl px-4 py-2 backdrop-blur-sm">
                 <span className="text-white font-semibold text-sm">EDIT MODE</span>
               </div>
-            </div>c
+            </div>
           </div>
 
           <form onSubmit={edit_handler} encType="multipart/form-data" className="px-6 sm:px-8 py-5">

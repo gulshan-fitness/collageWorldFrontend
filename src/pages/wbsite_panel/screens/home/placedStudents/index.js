@@ -239,7 +239,7 @@ const PlacedStudents = () => {
         {/* Call to Action */}
         <div className="text-center mt-12">
           <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200 max-w-3xl mx-auto">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Join Our Success Stories?</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Join ?</h3>
             <p className="text-gray-600 mb-6 leading-relaxed">
               "Sahi course, Sahi chunav ka saathi - Aao padhe aur safal bane!" 
               Start your journey towards a successful career today.

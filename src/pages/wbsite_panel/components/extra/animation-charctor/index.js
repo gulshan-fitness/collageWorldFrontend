@@ -5,6 +5,7 @@ import axios from "axios";
 import Loader from "../../Loader";
 
 const AnimatedText = ({ course_name }) => {
+  
   const { setapply_popUpIsOpen, user, setuserSignUp_popup } =
     useContext(Context);
 

@@ -58,6 +58,8 @@ export default function WebsiteStory_view() {
 
       setFilteredStories(filtered);
     }
+
+    
   }, [websitestory, searchTerm, sortBy]);
 
   const openDeleteModal = (story) => {

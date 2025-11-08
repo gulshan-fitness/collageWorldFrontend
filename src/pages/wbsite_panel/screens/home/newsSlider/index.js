@@ -13,6 +13,9 @@ const NewsSlider = ({ collegeDetails }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [currentVideo, setCurrentVideo] = useState('');
 
+  console.log(collegeDetails?.stories,"ram",collegeDetails);
+  
+
   const openModal = (videoUrl) => {
     setCurrentVideo(videoUrl);
     setModalIsOpen(true);
@@ -58,6 +61,9 @@ const NewsSlider = ({ collegeDetails }) => {
     ],
   };
 
+
+  console.log(collegeDetails,"collegeDetails");
+  
   return (
     <div className="w-full py-12 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       <div className="w-[95%] max-w-6xl mx-auto">
@@ -78,6 +84,7 @@ const NewsSlider = ({ collegeDetails }) => {
         </div>
 
         <Slider {...settings}>
+
           {collegeDetails?.stories?.map((data, index) => (
             <div className="px-3" key={index}>
               <div

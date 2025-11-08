@@ -79,7 +79,7 @@ const DeleteConfirmationModal = ({ isOpen, onClose, onConfirm, collegeName }) =>
 };
 
 export default function College_view() {
-  const { colleges, college_fetch, token, notify, admin, verifyAdmin,currenetcolleges } = useContext(Context);
+  const { colleges, college_fetch, token, notify, admin, verifyAdmin } = useContext(Context);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredColleges, setFilteredColleges] = useState([]);
   const [selectedType, setSelectedType] = useState('all');
@@ -261,7 +261,7 @@ export default function College_view() {
     );
   }
 
-  if (colleges?.length !== 0 ||currenetcolleges?.length!==0) {
+  if (colleges?.length !== 0) {
     return (
       <>
         <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/20 py-8 px-4 sm:px-6 lg:px-8">
@@ -362,7 +362,7 @@ export default function College_view() {
 
             {/* Colleges Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-              { (currenetcolleges?.length!==0?currenetcolleges:filteredColleges)?.map((college, index) => (
+              { filteredColleges?.map((college, index) => (
                 <div
                   key={college._id}
                   className="group bg-white/80 backdrop-blur-lg rounded-3xl shadow-xl border border-white/50 hover:shadow-2xl hover:border-blue-300/50 transition-all duration-500 overflow-hidden hover:scale-105"
