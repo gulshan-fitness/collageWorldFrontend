@@ -29,8 +29,9 @@ const Compaire_colleges = () => {
   };
 
   useEffect(() => {
+    if(!compare_popup)  return
     college_fetch();
-  }, []);
+  }, [compare_popup]);
 
   // Find best college
   const bestCollege = selectedColleges.reduce((best, curr) => {

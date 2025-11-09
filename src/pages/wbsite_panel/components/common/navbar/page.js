@@ -27,6 +27,9 @@ import HoverUniversities from "../hoverUniveristies/page";
 import signupIcon from "./mobicon/add-friend.png";
 import { Context } from "../../../../../Context_holder";
 import gificon from "./mobicon/search.gif"
+import { MdBorderAll } from "react-icons/md";
+import AllCourse from "../../AllCourse";
+
 
 const Navbar = ({ setsearchbar , backgroundColor }) => {
 
@@ -44,10 +47,10 @@ const Navbar = ({ setsearchbar , backgroundColor }) => {
     topCourses,
     stream_with_colleges,
     stream_with_colleges_fetch,
-    setcollege_state,Examfetch,exam,setstream_name
+    setcollege_state,Examfetch,exam,setstream_name,best_colleges_in_courses_array,setcourse_name
   } = useContext(Context);
 
-  const navigater = useNavigate();
+ 
 
   
    
@@ -60,6 +63,9 @@ const Navbar = ({ setsearchbar , backgroundColor }) => {
   const [showAIModal, setShowAIModal] = useState(false);
   const [showMoreDropdown, setShowMoreDropdown] = useState(false);
   const [showExploreDropdown, setShowExploreDropdown] = useState(false);
+   const [showAllCourses, setShowAllCourses] = useState(false);
+   const navigater= useNavigate()
+  
 
   const best_college_handler = (state) => {
     setcollege_state({ value: state });
@@ -109,11 +115,24 @@ const Navbar = ({ setsearchbar , backgroundColor }) => {
   const toggleExploreDropdown = () => {
     setShowExploreDropdown(!showExploreDropdown);
     setShowMoreDropdown(false);
+
+    
+  };
+
+    const course_handler = (course_name) => {
+
+
+    setcourse_name(course_name);
+
+
+    navigater("/allUniversity");
+
   };
 
   return (
     <>
       {/* Desktop navbar */}
+
       <div
         style={{
           color: backgroundColor === '#18092f' ? '#ffffff' : '#000000',
@@ -124,6 +143,8 @@ const Navbar = ({ setsearchbar , backgroundColor }) => {
         <div className="mx-auto lg:w-[90%] px-3 lg:px-0 flex gap-9 xl:gap-2 items-center py-2 md:py-4 xl:justify-between">
           
           <div className="flex items-center gap-4 w-[50%] lg:w-auto">
+
+
             <Link to="/" className="flex items-center">
               <h1 className="hover:scale-110 transition-transform duration-300 font-bold text-[14px] sm:text-[16px] whitespace-nowrap">
               AAOPADHE
@@ -336,6 +357,36 @@ const Navbar = ({ setsearchbar , backgroundColor }) => {
             onClick={() => setMobilnav(true)}
           />
         </div>
+
+
+       <div>
+      {/* Top Bar etc... */}
+
+      <div className={` md:flex hidden gap-2 items-center px-3`}>
+        {/* 🔸 All Courses Button */}
+        <p
+          onClick={() => setShowAllCourses(true)} // ✅ Open popup on click
+          className="cursor-pointer text-sm flex items-center gap-1 bg-[orange] p-1 rounded-sm hover:bg-orange-500 transition"
+        >
+          <MdBorderAll className="text-xl" />
+          <span>All Courses</span>
+        </p>
+
+        {best_colleges_in_courses_array?.map((data, index) => (
+          <button key={index} className="text-sm capitalize" onClick={()=>course_handler(data)}>{data}</button>
+        ))}
+      </div>
+
+      {/* 🧠 Popup Component */}
+      <AllCourse
+        isOpen={showAllCourses}
+        onClose={() => setShowAllCourses(false)} // ✅ Close popup
+        course_handler={course_handler}
+      />
+    </div>
+      
+
+
       </div>
 
       {/* AI Suggestion Modal */}

@@ -4,9 +4,9 @@ import { Context } from "../../../../../Context_holder";
 import axios from "axios";
 import Loader from "../../Loader";
 
-const AnimatedText = ({ course_name }) => {
+const AnimatedText = ({ course_name,setShowPopup}) => {
   
-  const { setapply_popUpIsOpen, user, setuserSignUp_popup } =
+  const { setapply_popUpIsOpen, user, setuserSignUp_popup} =
     useContext(Context);
 
   const [loading, setLoading] = useState(false);
@@ -22,6 +22,7 @@ const AnimatedText = ({ course_name }) => {
 
         if (res.data.status === 1) {
           setapply_popUpIsOpen(true);
+          setShowPopup(false)
         }
       } catch (error) {
         console.error(error);

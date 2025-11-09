@@ -141,7 +141,9 @@ export function FeesTable({ collegeDetails }) {
                     <td className="py-4 px-6">
                       
                       <button 
-                        className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-2 px-5 rounded-lg transition-all duration-300 hover:shadow-md text-sm flex items-center gap-2"
+                       
+                       className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold rounded-lg transition-all duration-300  hover:shadow-md text-sm flex items-center gap-2"
+                       
                       >
                         <FaGraduationCap className="text-xs" />
 

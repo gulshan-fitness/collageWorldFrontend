@@ -62,23 +62,29 @@ function Footer2({ setsearchbar }) {
     setfilterHeading,
   } = useContext(Context);
   useEffect(() => {
+
+    
     website_blog_fetch();
   }, []);
 
   const navigater = useNavigate();
 
   const best_college_handler = (city) => {
+
     setcollege_city({ value: city });
     setfilterHeading("Best Colleges in");
-
     navigater("/allUniversity");
+
   };
 
   const ugc_course_handler = (course_name) => {
+
+
     setcourse_name(course_name);
 
     setfilterHeading("Best Colleges for");
     navigater("/allUniversity");
+
   };
 
   // Custom navigation function that scrolls to header after navigation

@@ -14,6 +14,7 @@ import NewsLetter from "./pages/wbsite_panel/screens/home/newsLetter";
 import Apply_popup from "./pages/wbsite_panel/components/applyPopup/Apply_popup";
 import Compaire_colleges from "./pages/wbsite_panel/components/Compaire_colleges";
 import Compare_colleges_select_popup from "./pages/wbsite_panel/components/Compare_colleges_popup";
+import SubSidyPopup from "./pages/wbsite_panel/components/SubSidyPopup";
 
 const Main = () => {
   const {
@@ -52,6 +53,7 @@ const navbarBackgroundColor = location.pathname === '/allUniversity' ? '#18092f'
       <Apply_popup/>
 
       <Compaire_colleges/>
+      <SubSidyPopup/>
 
       {/* <Compare_colleges_select_popup/> */}
 

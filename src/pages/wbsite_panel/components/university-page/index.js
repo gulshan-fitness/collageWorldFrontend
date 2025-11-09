@@ -84,6 +84,8 @@ function UniversityPage() {
   
     const enquiry_api = (new_data,index) => {
 
+
+
       if (user&& id) {
            setLoaderindex(index)
         let data={ college: id,}
@@ -138,12 +140,15 @@ if(new_data){
 
   useEffect(() => {
 
+  ScrollComponent();
+
     if(!id) return
-    college_fetch(id);
-    ScrollComponent();
+
+    college_fetch(id); 
+
     PremiumAdfetch(null,id)
 
-  }, [id]);
+  },[id]);
 
   useEffect(() => {
 
@@ -192,7 +197,7 @@ if(new_data){
 
 
 
-  console.log(colleges[0],"colleges?.[0]");
+ console.log(colleges,"CurrentPremiumAdd");
   
 
   if (colleges?.length!==0){
@@ -200,6 +205,7 @@ if(new_data){
       <div className="w-full min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 text-gray-900" id="page_on_the_top">
         
         {/* University Banner */}
+        
         <UniversityBanner id={id} collegeDetails={colleges?.[0]} />
         
         {/* Navigation */}
@@ -481,7 +487,7 @@ if(new_data){
                     <h3 className="text-base font-bold text-black">Latest News</h3>
                   </div>
                   <div className="p-4 bg-white">
-                    <NewsSlider collegeDetails={colleges[0]} />
+                    <NewsSlider stories={colleges?.[0]?.stories?.length!==0 && colleges?.[0]?.stories} />
                   </div>
                 </div>
               </div>
